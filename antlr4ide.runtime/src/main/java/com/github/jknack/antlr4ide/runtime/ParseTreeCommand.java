@@ -15,8 +15,8 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.atn.PredictionMode;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.antlr.v4.runtime.misc.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.antlr.v4.runtime.misc.Utils;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -108,7 +108,7 @@ public class ParseTreeCommand {
     return g;
   }
 
-  private String toStringTree(@NotNull final Tree t, @Nullable final List<String> ruleNames) {
+  private String toStringTree(@NonNull final Tree t, @Nullable final List<String> ruleNames) {
     if (t.getChildCount() == 0) {
       return Utils.escapeWhitespace(getNodeText(t, ruleNames), true);
     }
@@ -127,7 +127,7 @@ public class ParseTreeCommand {
     return buf.toString();
   }
 
-  private String getNodeText(@NotNull final Tree t, @Nullable final List<String> ruleNames) {
+  private String getNodeText(@NonNull final Tree t, @Nullable final List<String> ruleNames) {
     if (ruleNames != null) {
       if (t instanceof RuleNode) {
         int ruleIndex = ((RuleNode) t).getRuleContext().getRuleIndex();
